@@ -1,7 +1,8 @@
 
 
 class StatTracker
-  def initialize(argument)
-    @argument = argument
+
+  def initialize
+
   end
 end
