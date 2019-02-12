@@ -1,6 +1,7 @@
 require './lib/stat_tracker'
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/mather'
 require 'csv'
 
 class StatTrackerTest < Minitest::Test
