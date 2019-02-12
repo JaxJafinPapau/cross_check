@@ -8,13 +8,15 @@ module Mather
     statistics
   end
 
-  def differencer
+  def differencer(game_file, column_a, column_b)
     statistics = []
     CSV.foreach(game_file) do |data_set|
       subtracted_values = data_set[column_a].to_i - data_set[column_b].to_i
       statistics << subtracted_values
     end
-    statistics
+    statistics.map do |stat|
+      stat.abs
+    end
   end
 
   def percentager(column_a, column_b)

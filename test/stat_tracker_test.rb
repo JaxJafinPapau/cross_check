@@ -27,4 +27,8 @@ class StatTrackerTest < Minitest::Test
   def test_stat_tracker_has_lowest_total_score
     assert_equal 3, @stat_tracker.lowest_total_score(@game_test_file)
   end
+
+  def test_stat_tracker_gives_biggest_blowout
+    assert_equal 3, @stat_tracker.biggest_blowout(@game_test_file)
+  end
 end

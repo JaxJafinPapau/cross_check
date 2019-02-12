@@ -23,7 +23,8 @@ class StatTracker
     low_scores.drop(1).min
   end
 
-  def method_name
-
+  def biggest_blowout(game_file)
+    blowouts = differencer(game_file, 6, 7)
+    blowouts.max
   end
 end
