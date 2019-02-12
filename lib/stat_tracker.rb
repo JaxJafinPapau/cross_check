@@ -1,4 +1,5 @@
 require 'csv'
+require 'pry'
 
 class StatTracker
 
@@ -11,11 +12,20 @@ class StatTracker
   end
 
   def highest_total_score(game_file)
-    all_scores = []
+    high_scores = []
     CSV.foreach(game_file) do |game|
       total_score = game[6].to_i + game[7].to_i
-      all_scores << total_score
+      high_scores << total_score
     end
-    all_scores.max
+    high_scores.max
+  end
+
+  def lowest_total_score(game_file)
+    low_scores = []
+    CSV.foreach(game_file) do |game|
+      total_score = game[6].to_i + game[7].to_i
+      low_scores << total_score
+    end
+    low_scores.drop(1).min
   end
 end

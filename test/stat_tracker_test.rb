@@ -22,4 +22,8 @@ class StatTrackerTest < Minitest::Test
   def test_stat_tracker_has_highest_total_score
     assert_equal 7, @stat_tracker.highest_total_score(@game_test_file)
   end
+
+  def test_stat_tracker_has_lowest_total_score
+    assert_equal 3, @stat_tracker.lowest_total_score(@game_test_file)
+  end
 end
