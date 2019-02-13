@@ -1,30 +1,26 @@
 require 'csv'
 require 'pry'
-require './lib/mather'
+require './lib/game'
 
 class StatTracker
-  include Mather
+  attr_reader :games,
+              :game_team_stats,
+              :team_info
 
-  # def initialize(file_path)
-  #   @data_set = file_path
-  # end
-
-  def self.from_csv(file)
-    CSV.read(file)
+  def initialize(locations)
+    @games = []
+    @game_team_stats = []
+    @team_info = []
+    load_games(locations[:games])
   end
 
-  def highest_total_score(game_file)
-    high_scores = adder(game_file, 6, 7)
-    high_scores.max
+  def self.from_csv(locations)
+    self.new(locations)
   end
 
-  def lowest_total_score(game_file)
-    low_scores = adder(game_file, 6, 7)
-    low_scores.drop(1).min
-  end
-
-  def biggest_blowout(game_file)
-    blowouts = differencer(game_file, 6, 7)
-    blowouts.max
+  def load_games(file_path)
+    CSV.foreach(file_path, headers: true, header_converters: :symbol) do |row|
+      @games << Game.new(row)
+    end
   end
 end
