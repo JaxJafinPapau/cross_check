@@ -1,8 +1,12 @@
 require 'csv'
 require 'pry'
 require './lib/game'
+require './lib/game_methods'
+
 
 class StatTracker
+include GameMethods
+
   attr_reader :games,
               :game_team_stats,
               :team_info
@@ -10,12 +14,15 @@ class StatTracker
   def initialize(locations)
     @games = []
     @game_team_stats = []
-    @team_info = []
-    load_games(locations[:games])
+    # @team_info = []
+
   end
 
   def self.from_csv(locations)
-    self.new(locations)
+    stat_tracker = new(locations)
+    stat_tracker.load_games(locations[:games])
+    # stat_tacker.load_game_team_stats(locations[:game_team_stats])
+    stat_tracker
   end
 
   def load_games(file_path)
@@ -23,32 +30,9 @@ class StatTracker
       @games << Game.new(row)
     end
   end
-
-  # def highest_total_score(game_file)
-  #   high_scores = adder(game_file, 6, 7)
-  #   high_scores.max
-  # end
-  #
-  # def lowest_total_score(game_file)
-  #   low_scores = adder(game_file, 6, 7)
-  #   low_scores.drop(1).min
-  # end
-  #
-  # def biggest_blowout(game_file)
-  #   blowouts = differencer(game_file, 6, 7)
-  #   blowouts.max
-  # end
-
-  # def percentage_home_wins(game_file)
-  #   total_games = CSV.read(game_file).count
-  #   home_game_wins = element_counter(game_file, "home win")
-  #   percentager(total_games, home_game_wins)
-  # end
-  #
-  # def matching_element_counter(game_file, string)
-  #   x = CSV.foreach(game_file) do |element|
-  #     element.match(string)
-  #   end
-  #   x.count
+  # def load_game_team_stats(file_path)
+  #   CSV.foreach(file_path, headers: true, header_converters: :symbol) do |row|
+  #     @game_team_stats << GameTeamStats.new(row)
+    # end
   # end
 end
