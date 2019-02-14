@@ -9,8 +9,8 @@ class StatTracker
 
   def initialize(locations)
     @games = []
-    @game_team_stats = []
-    @team_info = []
+    # @game_team_stats = []
+    # @team_info = []
     load_games(locations[:games])
   end
 
