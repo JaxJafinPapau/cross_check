@@ -2,6 +2,7 @@ require 'csv'
 require 'pry'
 require './lib/game'
 require './lib/game_team_stats'
+require './lib/team_info'
 
 class StatTracker
   attr_reader :games,
@@ -18,6 +19,7 @@ class StatTracker
     stat_tracker = new(locations)
     stat_tracker.load_games(locations[:games])
     stat_tracker.load_game_team_stats(locations[:game_team_stats])
+    stat_tracker.load_team_info(locations[:team_info])
     stat_tracker
   end
 

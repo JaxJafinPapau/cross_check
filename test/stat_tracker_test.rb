@@ -9,7 +9,7 @@ class StatTrackerTest < Minitest::Test
       games: './data/fixture_game.csv',
       team_info: './data/fixture_team_info.csv',
       game_team_stats: './data/fixture_game_teams_stats.csv'
-      }
+    }
     @stat_tracker = StatTracker.from_csv(@test_locations)
   end
 
