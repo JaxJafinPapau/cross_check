@@ -22,12 +22,10 @@ class GameTest < Minitest::Test
   end
 
   def test_it_exsists
-
     assert_instance_of Game, @game
   end
 
   def test_it_attributes
-
     assert_equal "1", @game.game_id
     assert_equal "2", @game.season
     assert_equal "P", @game.type
