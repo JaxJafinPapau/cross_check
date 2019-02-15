@@ -1,15 +1,16 @@
 require './lib/stat_tracker'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/mather'
 require 'csv'
 
 class StatTrackerTest < Minitest::Test
   def setup
-    @game_test_file = {games: './data/fixture_game.csv'}
-    # team_test_path = './data/fixture_team_info.csv'
-    @game_teams_test_path = {game_team_stats: './data/fixture_game_teams_stats.csv'}
-    @stat_tracker = StatTracker.from_csv(@game_test_file)
+    @test_locations = {
+      games: './data/fixture_game.csv',
+      team_info: './data/fixture_team_info.csv',
+      game_team_stats: './data/fixture_game_teams_stats.csv'
+      }
+    @stat_tracker = StatTracker.from_csv(@test_locations)
   end
 
   def test_stat_tracker_exists
@@ -24,6 +25,11 @@ class StatTrackerTest < Minitest::Test
   def test_stat_tracker_has_game_team_stats
     assert_equal 6, @stat_tracker.game_team_stats.count
     assert_instance_of GameTeamStats, @stat_tracker.game_team_stats[0]
+  end
+
+  def test_stat_tracker_has_game_team_stats
+    assert_equal 6, @stat_tracker.team_info.count
+    assert_instance_of TeamInfo, @stat_tracker.team_info[0]
   end
 
   # def test_highest_total_score
