@@ -7,12 +7,12 @@ require './lib/team_info'
 class StatTracker
   attr_reader :games,
               :game_team_stats,
-              :team_info
+              :team_info_rows
 
   def initialize(locations)
     @games = []
     @game_team_stats = []
-    @team_info = []
+    @team_info_rows = []
   end
 
   def self.from_csv(locations)
@@ -37,7 +37,7 @@ class StatTracker
 
   def load_team_info(file_path)
     CSV.foreach(file_path, headers: true, header_converters: :symbol) do |row|
-      @team_info << TeamInfo.new(row)
+      @team_info_rows << TeamInfo.new(row)
     end
   end
 end
