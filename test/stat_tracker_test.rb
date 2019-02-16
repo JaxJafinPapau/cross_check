@@ -1,7 +1,4 @@
-require './lib/stat_tracker'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'csv'
+require './test/test_helper'
 
 class StatTrackerTest < Minitest::Test
   def setup
