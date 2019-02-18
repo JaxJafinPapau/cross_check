@@ -7,6 +7,7 @@ require './lib/team_info_module'
 
 class StatTracker
   include TeamInfoModule
+
   attr_reader :games,
               :game_team_stats,
               :team_info_rows
