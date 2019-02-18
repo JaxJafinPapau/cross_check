@@ -1,11 +1,16 @@
 require 'csv'
-require 'pry'
-require './lib/game'
 require './lib/game_team_stats'
+require './lib/game'
+require './lib/team_info'
+require './lib/game_methods'
+require './lib/league_methods'
 require './lib/team_info_module'
 
 class StatTracker
+  include GameMethods
+  include LeagueMethods
   include TeamInfoModule
+
   attr_reader :games,
               :game_team_stats,
               :team_info_rows
