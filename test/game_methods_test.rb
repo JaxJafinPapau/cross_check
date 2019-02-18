@@ -9,8 +9,8 @@ class GameMethodsTest < Minitest::Test
 
     locations = {
       games: game_path,
-      teams: team_path,
-      game_teams: game_teams_path
+      team_info: team_path,
+      game_team_stats: game_teams_path
     }
 
     @stat_tracker = StatTracker.from_csv(locations)
@@ -44,8 +44,8 @@ class GameMethodsTest < Minitest::Test
 
     locations = {
       games: game_path,
-      teams: team_path,
-      game_teams: game_teams_path
+      team_info: team_path,
+      game_team_stats: game_teams_path
     }
     stat_tracker = StatTracker.from_csv(locations)
 
@@ -65,8 +65,8 @@ class GameMethodsTest < Minitest::Test
 
     locations = {
       games: game_path,
-      teams: team_path,
-      game_teams: game_teams_path
+      team_info: team_path,
+      game_team_stats: game_teams_path
     }
     stat_tracker = StatTracker.from_csv(locations)
 
