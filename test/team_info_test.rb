@@ -1,7 +1,4 @@
-require './lib/team_info'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'csv'
+require './test/test_helper'
 
 class GameTest < Minitest::Test
 

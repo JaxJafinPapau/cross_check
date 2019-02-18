@@ -1,12 +1,9 @@
-require './lib/game'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'csv'
+require './test/test_helper'
 
 class GameTest < Minitest::Test
 
   def setup
-    categories = { game_id: "1",
+    categories = {  game_id: "1",
                     season: "2",
                     type: "P",
                     date_time: 2013-05-16,

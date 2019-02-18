@@ -5,6 +5,7 @@ class TeamInfo
               :teamname,
               :abbreviation,
               :link
+
   def initialize(categories)
     @team_id = categories[:team_id]
     @franchiseid = categories[:franchiseid]

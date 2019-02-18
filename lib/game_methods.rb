@@ -30,18 +30,16 @@ module GameMethods
     binding
     games_by_season = @games.group_by { |game| game.season }
     games_by_season.each { |season, games| games_by_season[season] = games.count }
-  end
 
   def average_goals_per_game #across all seasons
     goals = games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.sum
     (goals / games.count.to_f)
   end
-
+    
   def average_goals_by_season
     goals_by_season = @games.group_by { |game| game.season }
     goals_by_season.each do |season, games|
     goals = games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.sum
     goals_by_season[season] = (goals.to_f / games.count.to_f).round(2)
   end
-end
 end
