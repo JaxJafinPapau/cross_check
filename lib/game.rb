@@ -1,5 +1,3 @@
-require 'pry'
-require './lib/stat_tracker'
 class Game
   attr_reader :game_id,
               :season,

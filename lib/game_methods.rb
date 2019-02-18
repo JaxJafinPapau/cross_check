@@ -1,6 +1,4 @@
-
 module GameMethods
-
 
   def highest_total_goals
     games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.max
@@ -21,7 +19,6 @@ module GameMethods
     (stat_b / stat_a.to_f * 100.00).round(2)
   end
 
-
   def percentage_away_wins
     stat_a = games.count
     home_win_bools = games.map {|game| game.outcome.match?(/away win/)}
@@ -29,43 +26,20 @@ module GameMethods
     (stat_b / stat_a.to_f * 100.00).round(2)
   end
 
-
-  # def game_hash
-  #
-  #   games = Hash.new each do |key, value| [keys] = value
-  # end
-
   def count_of_games_by_season
     binding
     games_by_season = @games.group_by { |game| game.season }
     games_by_season.each { |season, games| games_by_season[season] = games.count }
-    #A hash with season names (e.g. 20122013) as keys
-    # and counts of games as values
-  end
-
 
   def average_goals_per_game #across all seasons
     goals = games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.sum
     (goals / games.count.to_f)
   end
-
-
+    
   def average_goals_by_season
-
-      #  goals_by_season.each do |season, games|
-        #  season_goals = games.map { |game| game.home_goals + game.away_goals }.sum
-        #  goals_by_season[season] = (season_goals.to_f / games.count.to_f).round(2)
-
     goals_by_season = @games.group_by { |game| game.season }
     goals_by_season.each do |season, games|
     goals = games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.sum
     goals_by_season[season] = (goals.to_f / games.count.to_f).round(2)
-
-     #hash
-    #Average number of goals scored in a game organized in a hash
-    # with season names (e.g. 20122013) as keys and a float representing
-    # the average number of goals in a game for that season as a key
-    # (rounded to the nearest 100th)
   end
-end
 end

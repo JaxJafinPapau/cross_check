@@ -1,24 +1,19 @@
-require './lib/stat_tracker'
-require './lib/game_methods'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'csv'
+require './test/test_helper.rb'
 
 class GameMethodsTest < Minitest::Test
 
   def setup
     game_path = './data/fixture_game.csv'
     team_path = './data/fixture_team_info.csv'
-    game_teams_path = './fixture_data/game_teams_stats.csv'
+    game_teams_path = './data/fixture_game_teams_stats.csv'
 
     locations = {
       games: game_path,
-      teams: team_path,
-      game_teams: game_teams_path
-    }
+      team_info: team_path,
+      game_team_stats: game_teams_path
+     }
 
     @stat_tracker = StatTracker.from_csv(locations)
-
   end
 
   def test_highest_total_goals?
@@ -44,12 +39,12 @@ class GameMethodsTest < Minitest::Test
   def test_count_of_games_by_season?
     game_path = './data/fixture_game_2.csv'
     team_path = './data/fixture_team_info.csv'
-    game_teams_path = './fixture_data/game_teams_stats.csv'
+    game_teams_path = './data/game_teams_stats.csv'
 
     locations = {
       games: game_path,
-      teams: team_path,
-      game_teams: game_teams_path
+      team_info: team_path,
+      game_team_stats: game_teams_path
     }
     stat_tracker = StatTracker.from_csv(locations)
 
@@ -65,12 +60,12 @@ class GameMethodsTest < Minitest::Test
   def test_average_goals_by_season?
     game_path = './data/fixture_game_2.csv'
     team_path = './data/fixture_team_info.csv'
-    game_teams_path = './fixture_data/game_teams_stats.csv'
+    game_teams_path = './data/game_teams_stats.csv'
 
     locations = {
       games: game_path,
-      teams: team_path,
-      game_teams: game_teams_path
+      team_info: team_path,
+      game_team_stats: game_teams_path
     }
     stat_tracker = StatTracker.from_csv(locations)
 
