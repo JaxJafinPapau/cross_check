@@ -1,5 +1,3 @@
-require './lib/stat_tracker'
-
 class TeamInfo
   attr_reader :team_id,
               :franchiseid,
