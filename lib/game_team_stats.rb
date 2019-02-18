@@ -1,5 +1,3 @@
-require './lib/stat_tracker'
-
 class GameTeamStats
   attr_reader :game_id,
               :team_id,
