@@ -1,6 +1,5 @@
 require './test/test_helper'
 
-
 class GameTeamStatsTest < Minitest::Test
 
   def setup
