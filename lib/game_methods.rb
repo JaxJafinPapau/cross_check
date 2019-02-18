@@ -39,8 +39,6 @@ module GameMethods
     binding
     games_by_season = @games.group_by { |game| game.season }
     games_by_season.each { |season, games| games_by_season[season] = games.count }
-      # binding.pry
-
     #A hash with season names (e.g. 20122013) as keys
     # and counts of games as values
   end
@@ -52,11 +50,22 @@ module GameMethods
   end
 
 
-  def average_goals_by_season #hash
+  def average_goals_by_season
+
+      #  goals_by_season.each do |season, games|
+        #  season_goals = games.map { |game| game.home_goals + game.away_goals }.sum
+        #  goals_by_season[season] = (season_goals.to_f / games.count.to_f).round(2)
+
+    goals_by_season = @games.group_by { |game| game.season }
+    goals_by_season.each do |season, games|
+    goals = games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.sum
+    goals_by_season[season] = (goals.to_f / games.count.to_f).round(2)
+
+     #hash
     #Average number of goals scored in a game organized in a hash
     # with season names (e.g. 20122013) as keys and a float representing
     # the average number of goals in a game for that season as a key
     # (rounded to the nearest 100th)
   end
-
+end
 end

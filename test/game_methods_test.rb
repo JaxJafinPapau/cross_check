@@ -53,13 +53,29 @@ class GameMethodsTest < Minitest::Test
     }
     stat_tracker = StatTracker.from_csv(locations)
 
-    expected = {}
+    expected = {"20122013"=>57, "20162017"=>4, "20142015"=>18, "20152016"=>16, "20132014"=>7}
     assert_equal expected, stat_tracker.count_of_games_by_season
   end
 
 
   def test_average_goals_per_game?
     assert_equal 5.0, @stat_tracker.average_goals_per_game
+  end
+
+  def test_average_goals_by_season?
+    game_path = './data/fixture_game_2.csv'
+    team_path = './data/fixture_team_info.csv'
+    game_teams_path = './fixture_data/game_teams_stats.csv'
+
+    locations = {
+      games: game_path,
+      teams: team_path,
+      game_teams: game_teams_path
+    }
+    stat_tracker = StatTracker.from_csv(locations)
+
+    expected = {"20122013"=>4.91, "20162017"=>5.75, "20142015"=>4.67, "20152016"=>4.88, "20132014"=>6.14}
+    assert_equal expected, stat_tracker.average_goals_by_season
   end
 
 end
