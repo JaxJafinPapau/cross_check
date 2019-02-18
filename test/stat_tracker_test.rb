@@ -5,10 +5,12 @@ require 'csv'
 
 class StatTrackerTest < Minitest::Test
   def setup
-    @game_test_file = {games: './data/fixture_game.csv'}
-    # team_test_path = './data/fixture_team_info.csv'
-    @game_teams_test_path = {game_team_stats: './data/fixture_game_teams_stats.csv'}
-    @stat_tracker = StatTracker.from_csv(@game_test_file)
+    @test_locations = {
+      games: './data/fixture_game.csv',
+      team_info: './data/fixture_team_info.csv',
+      game_team_stats: './data/fixture_game_teams_stats.csv'
+    }
+    @stat_tracker = StatTracker.from_csv(@test_locations)
   end
 
 
@@ -26,21 +28,22 @@ class StatTrackerTest < Minitest::Test
     assert_instance_of GameTeamStats, @stat_tracker.game_team_stats[0]
   end
 
- # def test_stat_tracker_has_game_team_stats
- #   assert_equal 6, @stat_tracker.game_team_stats.count
- #   assert_instance_of GameTeamStats, @stat_tracker.game_team_stats[0]
- # end
 
- # def test_highest_total_score
- #   game_1 = Game.new({away_goals: 3, home_goals: 1})
- #   game_2 = Game.new({away_goals: 3, home_goals: 1})
- #   game_3 = Game.new({away_goals: 3, home_goals: 1})
- #   game_4 = Game.new({away_goals: 3, home_goals: 1})
- #   game_5 = Game.new({away_goals: 3, home_goals: 1})
- #   games = [game_1, game_2, game_3, game_4, game_5]
- #   stat_tracker = StatTracker.new(games)
- #   assert_equal 4, stat_tracker.highest_total_score
- # end
+  def test_stat_tracker_has_team_info
+    assert_equal 6, @stat_tracker.team_info_rows.count
+    assert_instance_of TeamInfo, @stat_tracker.team_info_rows[0]
+  end
+
+  # def test_highest_total_score
+  #   game_1 = Game.new({away_goals: 3, home_goals: 1})
+  #   game_2 = Game.new({away_goals: 3, home_goals: 1})
+  #   game_3 = Game.new({away_goals: 3, home_goals: 1})
+  #   game_4 = Game.new({away_goals: 3, home_goals: 1})
+  #   game_5 = Game.new({away_goals: 3, home_goals: 1})
+  #   games = [game_1, game_2, game_3, game_4, game_5]
+  #   stat_tracker = StatTracker.new(games)
+  #   assert_equal 4, stat_tracker.highest_total_score
+  # end
 
  # Test that after you call StatTracker.from_csv,
  # the new StatTracker object is loaded with the correct games
