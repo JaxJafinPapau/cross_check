@@ -1,12 +1,9 @@
-require './lib/game'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'csv'
+require './test/test_helper'
 
 class GameTest < Minitest::Test
 
   def setup
-    categories = { game_id: "1",
+    categories = {  game_id: "1",
                     season: "2",
                     type: "P",
                     date_time: 2013-05-16,
@@ -22,12 +19,10 @@ class GameTest < Minitest::Test
   end
 
   def test_it_exsists
-
     assert_instance_of Game, @game
   end
 
   def test_it_attributes
-
     assert_equal "1", @game.game_id
     assert_equal "2", @game.season
     assert_equal "P", @game.type
