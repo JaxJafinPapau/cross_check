@@ -13,9 +13,9 @@ include GameMethods
 
   def initialize(locations)
     @games = []
-    @game_team_stats = []
+    # @game_team_stats = []
     # @team_info = []
-
+    load_games(locations[:games])
   end
 
   def self.from_csv(locations)

@@ -4,22 +4,27 @@ require 'minitest/pride'
 require 'csv'
 
 class StatTrackerTest < Minitest::Test
- def setup
-   @game_test_file = {games: './data/fixture_game.csv'}
-   # team_test_path = ‘./data/fixture_team_info.csv’
-   # @game_teams_test_path = {game_team_stats: ‘./data/fixture_game_teams_stats.csv’}
-   @stat_tracker = StatTracker.from_csv(@game_test_file)
- end
+  def setup
+    @game_test_file = {games: './data/fixture_game.csv'}
+    # team_test_path = './data/fixture_team_info.csv'
+    @game_teams_test_path = {game_team_stats: './data/fixture_game_teams_stats.csv'}
+    @stat_tracker = StatTracker.from_csv(@game_test_file)
+  end
+
 
  def test_stat_tracker_exists
    assert_instance_of StatTracker, @stat_tracker
  end
 
- def test_stat_tracker_has_games
-   assert_equal 3, @stat_tracker.games.count
-   assert_instance_of Game, @stat_tracker.games[0]
-   binding.pry
- end
+  def test_stat_tracker_has_games
+    assert_equal 3, @stat_tracker.games.count
+    assert_instance_of Game, @stat_tracker.games[0]
+  end
+
+  def test_stat_tracker_has_game_team_stats
+    assert_equal 6, @stat_tracker.game_team_stats.count
+    assert_instance_of GameTeamStats, @stat_tracker.game_team_stats[0]
+  end
 
  # def test_stat_tracker_has_game_team_stats
  #   assert_equal 6, @stat_tracker.game_team_stats.count
