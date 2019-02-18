@@ -2,16 +2,16 @@ require './lib/stat_tracker'
 
 class TeamInfo
   attr_reader :team_id,
-              :franchiseId,
-              :shortName,
-              :teamName,
+              :franchiseid,
+              :shortname,
+              :teamname,
               :abbreviation,
               :link
   def initialize(categories)
     @team_id = categories[:team_id]
-    @franchiseId = categories[:franchiseId]
-    @shortName = categories[:shortName]
-    @teamName = categories[:teamName]
+    @franchiseid = categories[:franchiseid]
+    @shortname = categories[:shortname]
+    @teamname = categories[:teamname]
     @abbreviation = categories[:abbreviation]
     @link = categories[:link]
   end

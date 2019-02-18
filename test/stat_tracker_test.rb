@@ -28,8 +28,8 @@ class StatTrackerTest < Minitest::Test
   end
 
   def test_stat_tracker_has_team_info
-    assert_equal 6, @stat_tracker.team_info.count
-    assert_instance_of TeamInfo, @stat_tracker.team_info[0]
+    assert_equal 6, @stat_tracker.team_info_rows.count
+    assert_instance_of TeamInfo, @stat_tracker.team_info_rows[0]
   end
 
   # def test_highest_total_score
