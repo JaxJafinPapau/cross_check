@@ -9,9 +9,9 @@ class GameTeamStats
               :shots,
               :hits,
               :pim,
-              :powerPlayOpportunities,
-              :powerPlayGoals,
-              :faceOffWinPercentage,
+              :powerplayopportunities,
+              :powerplaygoals,
+              :faceoffwinpercentage,
               :giveaways,
               :takeaways
 
@@ -26,9 +26,9 @@ class GameTeamStats
     @shots = categories[:shots]
     @hits = categories[:hits]
     @pim = categories[:pim]
-    @powerPlayOpportunities = categories[:powerPlayOpportunities]
-    @powerPlayGoals = categories[:powerPlayGoals]
-    @faceOffWinPercentage = categories[:faceOffWinPercentage]
+    @powerplayopportunities = categories[:powerplayopportunities]
+    @powerplaygoals = categories[:powerplaygoals]
+    @faceoffwinpercentage = categories[:faceoffwinpercentage]
     @giveaways = categories[:giveaways]
     @takeaways = categories[:takeaways]
   end
