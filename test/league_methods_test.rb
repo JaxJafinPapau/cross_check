@@ -17,8 +17,11 @@ class LeagueMethodsTest < Minitest::Test
   end
 
   def test_total_number_of_teams
-    skip
-    assert_equal 3, @stat_tracker.total_number_of_teams
+    assert_equal 6, @stat_tracker.total_number_of_teams
+  end
+
+  def test_best_offense
+    assert_equal " ", @stat_tracker.best_offense
   end
 
 end

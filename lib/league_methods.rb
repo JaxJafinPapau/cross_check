@@ -1,12 +1,21 @@
+require "pry"
+require './lib/game_methods'
+
 module LeagueMethods
 
   def total_number_of_teams
-    #team_id.count
+    team_info_rows.count
+  end
+
+  def average_goals_scored
+
   end
 
   def best_offense
     # Name of the team with the highest average number of goals scored per game across all seasons.
   end
+
+    # Name of the team with the highest average number of goals scored per game across all seasons.
 
   def worst_offense
     #Name of the team with the lowest average number of goals scored per game across all seasons.
