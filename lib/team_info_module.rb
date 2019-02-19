@@ -42,8 +42,33 @@ module TeamInfoModule
     goals_scored_by_team(team_id).min
   end
 
-  def favorite_team
-
+  def favorite_opponent(team_id)
+    #find all the games that team_id played agaist given opponnent
+    games = games_by_team(team_id)
+    wins_by_opposing_team = []
+    losses_by_opposing_team = []
+    games.each do |game|
+      if team_id == game.away_team_id && game.outcome.match?(/away win/)
+        wins_by_opposing_team << game.home_team_id
+      elsif team_id == game.home_team_id && game.outcome.match?(/home win/)
+        wins_by_opposing_team << game.away_team_id
+      elsif team_id == game.away_team_id && game.outcome.match?(/home win/)
+        losses_by_opposing_team << game.home_team_id
+      else team_id == game.home_team_id && game.outcome.match?(/away win/)
+        losses_by_opposing_team << game.away_team_id
+      end
+    end
+    favorite_team_id = wins_by_opposing_team.max_by do |id|
+      wins_by_opposing_team.count(id) / (wins_by_opposing_team.count(id) + losses_by_opposing_team.count(id))
+    end
+    team_id_converter(favorite_team_id)
+  end
+#takes a team_id number and converts it to teamname
+  def team_id_converter(team_id_number)
+    favorite_team_row = @team_info_rows.find do |row|
+      row.team_id == team_id_number
+    end
+    favorite_team_row.teamname
   end
 #organizes a given set of games by season_id
   def games_by_season(set_of_games)
