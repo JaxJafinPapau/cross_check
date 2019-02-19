@@ -4,8 +4,8 @@ class TeamInfoModuleTest < Minitest::Test
   def setup
     @test_locations = {
       games: './data/fixture_game_3.csv',
-      team_info: './data/fixture_team_info.csv',
-      game_team_stats: './data/fixture_game_teams_stats.csv'
+      teams: './data/team_info.csv',
+      game_teams: './data/fixture_game_teams_stats.csv'
     }
     @stat_tracker = StatTracker.from_csv(@test_locations)
   end
@@ -43,7 +43,11 @@ class TeamInfoModuleTest < Minitest::Test
     assert_equal 2, @stat_tracker.fewest_goals_scored("1")
   end
 
-  # def test_team_can_find_favorite_opponent
-  #   assert_equal "Blues", @stat_tracker.favorite_opponent("19")
-  # end
+  def test_team_can_find_favorite_opponent
+    assert_equal "Islanders", @stat_tracker.favorite_opponent("1")
+  end
+
+  def method_name
+
+  end
 end
