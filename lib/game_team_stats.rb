@@ -18,7 +18,7 @@ class GameTeamStats
   def initialize(categories)
     @game_id = categories["game_id"]
     @team_id = categories["team_id"]
-    @hoa = categories["hoa"]
+    @hoa = categories["HoA"]
     @won = categories["won"]
     @settled_in = categories["settled_in"]
     @head_coach = categories["head_coach"]
@@ -26,9 +26,9 @@ class GameTeamStats
     @shots = categories["shots"]
     @hits = categories["hits"]
     @pim = categories["pim"]
-    @powerplayopportunities = categories["powerplayopportunities"]
-    @powerplaygoals = categories["powerplaygoals"]
-    @faceoffwinpercentage = categories["faceoffwinpercentage"]
+    @powerplayopportunities = categories["powerPlayOpportunities"]
+    @powerplaygoals = categories["powerPlayGoals"]
+    @faceoffwinpercentage = categories["faceOffWinPercentage"]
     @giveaways = categories["giveaways"]
     @takeaways = categories["takeaways"]
   end

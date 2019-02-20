@@ -6,7 +6,7 @@ class GameTeamStatsTest < Minitest::Test
     categories = {
       "game_id" => "2012030221",
       "team_id" => "3",
-      "hoa" => "away",
+      "HoA" => "away",
       "won" => "FALSE",
       "settled_in" => "OT",
       "head_coach" => "John Tortorella",
@@ -14,9 +14,9 @@ class GameTeamStatsTest < Minitest::Test
       "shots" => 35,
       "hits" => 44,
       "pim" => 8,
-      "powerplayopportunities" => 3,
-      "powerplaygoals" => 0,
-      "faceoffwinpercentage" => 44.8,
+      "powerPlayOpportunities" => 3,
+      "powerPlayGoals" => 0,
+      "faceOffWinPercentage" => 44.8,
       "giveaways" => 17,
       "takeaways" => 7
       }
