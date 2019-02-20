@@ -22,7 +22,7 @@ module GameMethods
     stat_a = games.count
     home_win_bools = games.map {|game| game.outcome.match?(/away win/)}
     stat_b = home_win_bools.count(true)
-    (stat_b / stat_a.to_f * 100.00).round(2)
+    (stat_b / stat_a.to_f).round(2)
   end
 
   def count_of_games_by_season
