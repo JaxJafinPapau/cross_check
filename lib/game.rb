@@ -14,6 +14,7 @@ class Game
               :venue_time_zone_id,
               :venue_time_zone_offset,
               :venue_time_zone_tz
+              
   def initialize(categories)
     @game_id = categories["game_id"]
     @season = categories["season"]
