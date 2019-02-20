@@ -5,9 +5,9 @@ module TeamInfoModule
       team_id == team.team_id
     end
   {"team_id" => selected.team_id,
-   "franchiseid" => selected.franchiseid,
-   "shortname" => selected.shortname,
-   "teamname" => selected.teamname,
+   "franchiseid" => selected.franchise_id,
+   "shortname" => selected.short_name,
+   "teamname" => selected.team_name,
    "abbreviation" => selected.abbreviation,
    "link" => selected.link
    }
@@ -68,7 +68,7 @@ module TeamInfoModule
     favorite_team_row = @team_info_rows.find do |row|
       row.team_id == team_id_number
     end
-    favorite_team_row.teamname
+    favorite_team_row.team_name
   end
 #organizes a given set of games by season_id
   def games_by_season(set_of_games)
