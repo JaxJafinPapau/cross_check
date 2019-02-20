@@ -3,7 +3,7 @@ module GameMethods
     games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.max
   end
 
-  def lowest_total_goals
+  def lowest_total_score
     games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.min
   end
 
