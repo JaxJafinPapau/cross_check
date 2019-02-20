@@ -14,9 +14,9 @@ class GameTeamStatsTest < Minitest::Test
       shots: 35,
       hits: 44,
       pim: 8,
-      powerPlayOpportunities: 3,
-      powerPlayGoals: 0,
-      faceOffWinPercentage: 44.8,
+      powerplayopportunities: 3,
+      powerplaygoals: 0,
+      faceoffwinpercentage: 44.8,
       giveaways: 17,
       takeaways: 7
       }
@@ -34,9 +34,9 @@ class GameTeamStatsTest < Minitest::Test
     assert_equal 35, @game_team_stats.shots
     assert_equal 44, @game_team_stats.hits
     assert_equal 8, @game_team_stats.pim
-    assert_equal 3, @game_team_stats.powerPlayOpportunities
-    assert_equal 0, @game_team_stats.powerPlayGoals
-    assert_equal 44.8, @game_team_stats.faceOffWinPercentage
+    assert_equal 3, @game_team_stats.powerplayopportunities
+    assert_equal 0, @game_team_stats.powerplaygoals
+    assert_equal 44.8, @game_team_stats.faceoffwinpercentage
     assert_equal 17, @game_team_stats.giveaways
     assert_equal 7, @game_team_stats.takeaways
   end
