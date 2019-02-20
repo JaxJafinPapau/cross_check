@@ -7,7 +7,7 @@ module GameMethods
     games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.min
   end
 
-  def biggest_difference
+  def biggest_blowout
     games.map {|game| (game.home_goals.to_i - game.away_goals.to_i).abs}.max
   end
 
