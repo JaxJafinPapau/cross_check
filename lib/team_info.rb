@@ -8,9 +8,9 @@ class TeamInfo
 
   def initialize(categories)
     @team_id = categories["team_id"]
-    @franchiseid = categories["franchiseid"]
-    @shortname = categories["shortname"]
-    @teamname = categories["teamname"]
+    @franchiseid = categories["franchiseId"]
+    @shortname = categories["shortName"]
+    @teamname = categories["teamName"]
     @abbreviation = categories["abbreviation"]
     @link = categories["link"]
   end

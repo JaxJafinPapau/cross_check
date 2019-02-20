@@ -28,7 +28,7 @@ class StatTracker
     stat_tracker.load_team_info(locations[:teams])
     stat_tracker
   end
-
+  
   def load_games(file_path)
     CSV.foreach(file_path, headers: true) do |row|
       @games << Game.new(row)

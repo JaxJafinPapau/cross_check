@@ -11,12 +11,12 @@ class TeamInfoModuleTest < Minitest::Test
   end
 
   def test_team_info_creates_info_hash
-    expected = {team_id: "1",
-                franchiseid: "23",
-                shortname: "New Jersey",
-                teamname: "Devils",
-                abbreviation: "NJD",
-                link: "/api/v1/teams/1"
+    expected = {"team_id" => "1",
+                "franchiseid" => "23",
+                "shortname" => "New Jersey",
+                "teamname" => "Devils",
+                "abbreviation" => "NJD",
+                "link" => "/api/v1/teams/1"
                 }
     assert_equal expected, @stat_tracker.team_info("1")
   end

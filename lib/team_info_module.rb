@@ -4,12 +4,12 @@ module TeamInfoModule
     selected = @team_info_rows.find do |team|
       team_id == team.team_id
     end
-  {team_id: selected.team_id,
-   franchiseid: selected.franchiseid,
-   shortname: selected.shortname,
-   teamname: selected.teamname,
-   abbreviation: selected.abbreviation,
-   link: selected.link
+  {"team_id" => selected.team_id,
+   "franchiseid" => selected.franchiseid,
+   "shortname" => selected.shortname,
+   "teamname" => selected.teamname,
+   "abbreviation" => selected.abbreviation,
+   "link" => selected.link
    }
   end
 
