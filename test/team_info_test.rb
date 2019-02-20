@@ -4,9 +4,9 @@ class GameTest < Minitest::Test
 
   def setup
     categories = {"team_id" => "1",
-                  "franchiseid" => "23",
-                  "shortname" => "New Jersey",
-                  "teamname" => "Devils",
+                  "franchiseId" => "23",
+                  "shortName" => "New Jersey",
+                  "teamName" => "Devils",
                   "abbreviation" => "NJD",
                   "link" => "/api/v1/teams/1"
                   }
