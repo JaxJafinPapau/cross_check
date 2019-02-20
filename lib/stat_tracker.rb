@@ -42,7 +42,7 @@ class StatTracker
   end
 
   def load_team_info(file_path)
-    CSV.foreach(file_path, headers: true, header_converters: :symbol) do |row|
+    CSV.foreach(file_path, headers: true) do |row|
       @team_info_rows << TeamInfo.new(row)
     end
   end

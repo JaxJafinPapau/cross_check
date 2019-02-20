@@ -7,11 +7,11 @@ class TeamInfo
               :link
 
   def initialize(categories)
-    @team_id = categories[:team_id]
-    @franchiseid = categories[:franchiseid]
-    @shortname = categories[:shortname]
-    @teamname = categories[:teamname]
-    @abbreviation = categories[:abbreviation]
-    @link = categories[:link]
+    @team_id = categories["team_id"]
+    @franchiseid = categories["franchiseid"]
+    @shortname = categories["shortname"]
+    @teamname = categories["teamname"]
+    @abbreviation = categories["abbreviation"]
+    @link = categories["link"]
   end
 end
