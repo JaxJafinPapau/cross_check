@@ -32,7 +32,7 @@ module GameMethods
 
   def average_goals_per_game #across all seasons
     goals = games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.sum
-    (goals / games.count.to_f)
+    (goals / games.count.to_f).round(2)
   end
 
   def average_goals_by_season
