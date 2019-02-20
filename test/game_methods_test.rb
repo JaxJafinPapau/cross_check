@@ -28,8 +28,8 @@ class GameMethodsTest < Minitest::Test
     assert_equal 3, @stat_tracker.biggest_blowout
   end
 
-  def test_percentage_home_wins?
-    assert_equal 66.67, @stat_tracker.percentage_home_wins
+  def test_percentage_home_wins
+    assert_equal 0.67, @stat_tracker.percentage_home_wins
   end
 
   def test_percentage_away_wins?
