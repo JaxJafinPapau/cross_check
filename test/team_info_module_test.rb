@@ -12,9 +12,9 @@ class TeamInfoModuleTest < Minitest::Test
 
   def test_team_info_creates_info_hash
     expected = {"team_id" => "1",
-                "franchiseid" => "23",
-                "shortname" => "New Jersey",
-                "teamname" => "Devils",
+                "franchise_id" => "23",
+                "short_name" => "New Jersey",
+                "team_name" => "Devils",
                 "abbreviation" => "NJD",
                 "link" => "/api/v1/teams/1"
                 }

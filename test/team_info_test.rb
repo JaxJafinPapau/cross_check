@@ -20,9 +20,9 @@ class GameTest < Minitest::Test
 
   def test_it_has_attributes
     assert_equal "1", @team_info.team_id
-    assert_equal "23", @team_info.franchiseid
-    assert_equal "New Jersey", @team_info.shortname
-    assert_equal "Devils", @team_info.teamname
+    assert_equal "23", @team_info.franchise_id
+    assert_equal "New Jersey", @team_info.short_name
+    assert_equal "Devils", @team_info.team_name
     assert_equal "NJD", @team_info.abbreviation
     assert_equal "/api/v1/teams/1", @team_info.link
   end

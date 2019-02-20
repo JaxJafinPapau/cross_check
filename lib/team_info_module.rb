@@ -5,9 +5,9 @@ module TeamInfoModule
       team_id == team.team_id
     end
   {"team_id" => selected.team_id,
-   "franchiseid" => selected.franchise_id,
-   "shortname" => selected.short_name,
-   "teamname" => selected.team_name,
+   "franchise_id" => selected.franchise_id,
+   "short_name" => selected.short_name,
+   "team_name" => selected.team_name,
    "abbreviation" => selected.abbreviation,
    "link" => selected.link
    }
