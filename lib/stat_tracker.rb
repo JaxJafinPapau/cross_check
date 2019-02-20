@@ -36,7 +36,7 @@ class StatTracker
   end
 
   def load_game_team_stats(file_path)
-    CSV.foreach(file_path, headers: true, header_converters: :symbol) do |row|
+    CSV.foreach(file_path, headers: true) do |row|
       @game_team_stats << GameTeamStats.new(row)
     end
   end
