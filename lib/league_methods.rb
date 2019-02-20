@@ -7,18 +7,28 @@ module LeagueMethods
     team_info_rows.count
   end
 
-  def average_goals_scored
-
-  end
-
   def best_offense
-    # Name of the team with the highest average number of goals scored per game across all seasons.
+    average_scores = {}
+    @team_info_rows.each do |team|
+      x = @game_team_stats.select { |game| game.team_id == team.team_id }
+      y = x.reduce(0) { |sum, n| sum + n.goals.to_i }
+      average_score = y / games.count.to_f
+      average_scores[team.teamname] = average_score
+    end
+    average_scores.max_by { |team, score| score }.first
   end
 
     # Name of the team with the highest average number of goals scored per game across all seasons.
-
   def worst_offense
-    #Name of the team with the lowest average number of goals scored per game across all seasons.
+      average_scores = {}
+      @team_info_rows.each do |team|
+        x = @game_team_stats.select { |game| game.team_id == team.team_id }
+        y = x.reduce(0) { |sum, n| sum + n.goals.to_i }
+        average_score = y / games.count.to_f
+        average_scores[team.teamname] = average_score
+      end
+      average_scores.min_by { |team, score| score }.first
+    end
   end
 
   def best_defense
@@ -56,5 +66,12 @@ module LeagueMethods
   def worst_fans
     #List of names of all teams with better away records than home records.
   end
+
+  # def team_name_getter(hash)
+  #   team = teams.find do |team|
+  #     team.team_id == hash(0)
+  # end
+  # "#{team.shortname} #{team.teamname}"
+  # end
 
 end
