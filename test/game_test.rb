@@ -3,17 +3,17 @@ require './test/test_helper'
 class GameTest < Minitest::Test
 
   def setup
-    categories = {  game_id: "1",
-                    season: "2",
-                    type: "P",
-                    date_time: 2013-05-16,
-                    away_team_id: "23",
-                    home_team_id: "644",
-                    away_goals: 4,
-                    home_goals: 7,
-                    outcome: "home win OT",
-                    home_rink_side_start: "left",
-                    venue:"TD Garden",
+    categories = {  "game_id" => "1",
+                    "season" => "2",
+                    "type" => "P",
+                    "date_time" => 2013-05-16,
+                    "away_team_id" => "23",
+                    "home_team_id" => "644",
+                    "away_goals" => 4,
+                    "home_goals" => 7,
+                    "outcome" => "home win OT",
+                    "home_rink_side_start" => "left",
+                    "venue" =>"TD Garden",
   }
   @game = Game.new(categories)
   end
