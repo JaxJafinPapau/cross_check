@@ -16,8 +16,8 @@ class GameMethodsTest < Minitest::Test
     @stat_tracker = StatTracker.from_csv(locations)
   end
 
-  def test_highest_total_goals?
-    assert_equal 7, @stat_tracker.highest_total_goals
+  def test_highest_total_score
+    assert_equal 7, @stat_tracker.highest_total_score
   end
 
   def test_lowest_total_goals?

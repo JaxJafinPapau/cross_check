@@ -1,5 +1,5 @@
 module GameMethods
-  def highest_total_goals
+  def highest_total_score
     games.map {|game| game.home_goals.to_i + game.away_goals.to_i}.max
   end
 
