@@ -29,7 +29,7 @@ class LeagueMethodsTest < Minitest::Test
   end
 
   def test_best_defense
-    assert_equal "", @stat_tracker.best_defense
+    assert_equal "Bruins", @stat_tracker.best_defense
   end
 
 end

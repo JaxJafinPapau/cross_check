@@ -52,7 +52,15 @@ module LeagueMethods
     end
 
   def worst_defense
-    
+    goals_allowed = Hash.new(0)
+       games_matches = @game_team_stats.group_by { |game| game.game_id}
+       # x = @game_team_stats.select { |game| game.team_id == team.team_id }
+       x = @game_team_stats.map {|game| game.team_id}
+
+       games_matches.values.each { |pair| goals_allowed[pair[1].team_id] += pair[0].goals.to_i  }
+       games_matches.values.each { |pair| goals_allowed[pair[0].team_id] += pair[1].goals.to_i  }
+       y = goals_allowed.min_by {|team, values| values / (x.count(team)/2.0) }
+       team_id_converter(y[0])
     #Name of the team with the highest average number of goals allowed per game across all seasons.
   end
 
