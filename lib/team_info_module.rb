@@ -4,12 +4,12 @@ module TeamInfoModule
     selected = @team_info_rows.find do |team|
       team_id == team.team_id
     end
-  {team_id: selected.team_id,
-   franchiseid: selected.franchiseid,
-   shortname: selected.shortname,
-   teamname: selected.teamname,
-   abbreviation: selected.abbreviation,
-   link: selected.link
+  {"team_id" => selected.team_id,
+   "franchise_id" => selected.franchise_id,
+   "short_name" => selected.short_name,
+   "team_name" => selected.team_name,
+   "abbreviation" => selected.abbreviation,
+   "link" => selected.link
    }
   end
 
@@ -18,7 +18,7 @@ module TeamInfoModule
     best = seasons.values.max_by do |season|
       games_win_percentage(team_id, season)
     end
-    best[0].season.to_i
+    best[0].season
   end
 
   def worst_season(team_id)
@@ -26,12 +26,12 @@ module TeamInfoModule
     worst = seasons.values.min_by do |season|
       games_win_percentage(team_id, season)
     end
-    worst[0].season.to_i
+    worst[0].season
   end
 
   def average_win_percentage(team_id)
     all_games = games_by_team(team_id)
-    (games_win_percentage(team_id, all_games) * 100).round(2)
+    games_win_percentage(team_id, all_games).round(2)
   end
 
   def most_goals_scored(team_id)
@@ -68,7 +68,7 @@ module TeamInfoModule
     favorite_team_row = @team_info_rows.find do |row|
       row.team_id == team_id_number
     end
-    favorite_team_row.teamname
+    favorite_team_row.team_name
   end
 #organizes a given set of games by season_id
   def games_by_season(set_of_games)

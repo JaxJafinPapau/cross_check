@@ -9,31 +9,31 @@ class GameMethodsTest < Minitest::Test
 
     locations = {
       games: game_path,
-      team_info: team_path,
-      game_team_stats: game_teams_path
+      teams: team_path,
+      game_teams: game_teams_path
      }
 
     @stat_tracker = StatTracker.from_csv(locations)
   end
 
-  def test_highest_total_goals?
-    assert_equal 7, @stat_tracker.highest_total_goals
+  def test_highest_total_score
+    assert_equal 7, @stat_tracker.highest_total_score
   end
 
-  def test_lowest_total_goals?
-    assert_equal 3, @stat_tracker.lowest_total_goals
+  def test_lowest_total_score
+    assert_equal 3, @stat_tracker.lowest_total_score
   end
 
-  def test_biggest_blowout?
-    assert_equal 3, @stat_tracker.biggest_difference
+  def test_biggest_blowout
+    assert_equal 3, @stat_tracker.biggest_blowout
   end
 
-  def test_percentage_home_wins?
-    assert_equal 66.67, @stat_tracker.percentage_home_wins
+  def test_percentage_home_wins
+    assert_equal 0.67, @stat_tracker.percentage_home_wins
   end
 
-  def test_percentage_away_wins?
-    assert_equal 33.33, @stat_tracker.percentage_away_wins
+  def test_percentage_away_wins
+    assert_equal 0.33, @stat_tracker.percentage_away_wins
   end
 
   def test_count_of_games_by_season?
@@ -43,8 +43,8 @@ class GameMethodsTest < Minitest::Test
 
     locations = {
       games: game_path,
-      team_info: team_path,
-      game_team_stats: game_teams_path
+      teams: team_path,
+      game_teams: game_teams_path
     }
     stat_tracker = StatTracker.from_csv(locations)
 
@@ -64,8 +64,8 @@ class GameMethodsTest < Minitest::Test
 
     locations = {
       games: game_path,
-      team_info: team_path,
-      game_team_stats: game_teams_path
+      teams: team_path,
+      game_teams: game_teams_path
     }
     stat_tracker = StatTracker.from_csv(locations)
 

@@ -1,17 +1,17 @@
 class TeamInfo
   attr_reader :team_id,
-              :franchiseid,
-              :shortname,
-              :teamname,
+              :franchise_id,
+              :short_name,
+              :team_name,
               :abbreviation,
               :link
 
   def initialize(categories)
-    @team_id = categories[:team_id]
-    @franchiseid = categories[:franchiseid]
-    @shortname = categories[:shortname]
-    @teamname = categories[:teamname]
-    @abbreviation = categories[:abbreviation]
-    @link = categories[:link]
+    @team_id = categories["team_id"]
+    @franchise_id = categories["franchiseId"]
+    @short_name = categories["shortName"]
+    @team_name = categories["teamName"]
+    @abbreviation = categories["abbreviation"]
+    @link = categories["link"]
   end
 end
