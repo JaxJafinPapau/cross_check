@@ -59,18 +59,41 @@ module LeagueMethods
 
        games_matches.values.each { |pair| goals_allowed[pair[1].team_id] += pair[0].goals.to_i  }
        games_matches.values.each { |pair| goals_allowed[pair[0].team_id] += pair[1].goals.to_i  }
-       y = goals_allowed.min_by {|team, values| values / (x.count(team)/2.0) }
+       y = goals_allowed.max_by {|team, values| values / (x.count(team)/2.0) }
        team_id_converter(y[0])
     #Name of the team with the highest average number of goals allowed per game across all seasons.
   end
 
   def highest_scoring_visitor
-    #Name of the team with the highest average score per game across all seasons when they are away.
-  end
+    x = @game_team_stats.map do |game|
+       game.hoa == "away"
+       game.team_id
+     end
+    goals_scored_visitor = Hash.new(0)
+     @game_team_stats.each do |games|
+         games.hoa == "away"
+      goals_scored_visitor[games.team_id] += games.goals.to_i
+      end
+      y = goals_scored_visitor.max_by {|team, values| values / x.count(team) }
+      team_id_converter(y[0])
+    end
 
+    #Name of the team with the highest average score per game across all seasons when they are
   def highest_scoring_home_team
+      x = @game_team_stats.map do |game|
+         game.hoa == "away"
+         game.team_id
+       end
+      goals_scored_visitor = Hash.new(0)
+       @game_team_stats.each do |games|
+           games.hoa == "away"
+        goals_scored_visitor[games.team_id] += games.goals.to_i
+        end
+        y = goals_scored_visitor.max_by {|team, values| values / x.count(team) }
+        team_id_converter(y[0])
+      end
     #Name of the team with the highest average score per game across all seasons when they are home.
-  end
+
 
   def lowest_scoring_visitor
     #Name of the team with the lowest average score per game across all seasons when they are a visitor
@@ -91,10 +114,10 @@ module LeagueMethods
   def worst_fans
     #List of names of all teams with better away records than home records.
   end
-end
   # def team_name_getter(hash)
   #   team = teams.find do |team|
   #     team.team_id == hash(0)
   # end
   # "#{team.shortname} #{team.teamname}"
   # end
+end

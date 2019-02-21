@@ -32,4 +32,17 @@ class LeagueMethodsTest < Minitest::Test
     assert_equal "Bruins", @stat_tracker.best_defense
   end
 
+  def test_worst_defense
+    assert_equal "Rangers", @stat_tracker.worst_defense
+  end
+
+  def test_highest_scoring_visitor
+    expected = "Bruins" #getting bruins because data set too small they are tied
+    assert_equal expected, @stat_tracker.highest_scoring_visitor
+  end
+
+  def test_highest_scoring_home_team
+    assert_equal "Bruins", @stat_tracker.highest_scoring_home_team
+  end
+
 end
