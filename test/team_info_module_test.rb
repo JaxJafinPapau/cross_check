@@ -24,15 +24,15 @@ class TeamInfoModuleTest < Minitest::Test
   def test_team_can_find_best_season
     assert_equal 5, @stat_tracker.games_by_team("1").count
     assert_equal "away win REG", @stat_tracker.games_by_team("1")[0].outcome
-    assert_equal 20132014, @stat_tracker.best_season("1")
+    assert_equal "20132014", @stat_tracker.best_season("1")
   end
 
   def test_team_can_find_worst_season
-     assert_equal 20122013, @stat_tracker.worst_season("1")
+     assert_equal "20122013", @stat_tracker.worst_season("1")
   end
 
   def test_team_can_find_win_percentage_across_all_games
-    assert_equal 80.00, @stat_tracker.average_win_percentage("1")
+    assert_equal 0.8, @stat_tracker.average_win_percentage("1")
   end
 
   def test_team_can_find_most_goals_scored

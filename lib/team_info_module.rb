@@ -18,7 +18,7 @@ module TeamInfoModule
     best = seasons.values.max_by do |season|
       games_win_percentage(team_id, season)
     end
-    best[0].season.to_i
+    best[0].season
   end
 
   def worst_season(team_id)
@@ -26,12 +26,12 @@ module TeamInfoModule
     worst = seasons.values.min_by do |season|
       games_win_percentage(team_id, season)
     end
-    worst[0].season.to_i
+    worst[0].season
   end
 
   def average_win_percentage(team_id)
     all_games = games_by_team(team_id)
-    (games_win_percentage(team_id, all_games) * 100).round(2)
+    games_win_percentage(team_id, all_games).round(2)
   end
 
   def most_goals_scored(team_id)
