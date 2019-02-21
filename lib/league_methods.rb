@@ -29,13 +29,30 @@ module LeagueMethods
       end
       average_scores.min_by { |team, score| score }.first
     end
-  end
 
   def best_defense
+    goals_allowed = Hash.new(0)
+       games_matches = @game_team_stats.group_by { |game| game.game_id}
+       # x = @game_team_stats.select { |game| game.team_id == team.team_id }
+       x = @game_team_stats.map {|game| game.team_id}
+
+       games_matches.values.each { |pair| goals_allowed[pair[1].team_id] += pair[0].goals.to_i  }
+       games_matches.values.each { |pair| goals_allowed[pair[0].team_id] += pair[1].goals.to_i  }
+       y = goals_allowed.min_by {|team, values| values / (x.count(team)/2.0) }
+       team_id_converter(y[0])
+
     #Name of the team with the lowest average number of goals allowed per game across all seasons.
   end
 
+  def team_id_converter(team_id_number)
+      favorite_team_row = @team_info_rows.find do |row|
+        row.team_id == team_id_number
+      end
+      favorite_team_row.teamname
+    end
+
   def worst_defense
+    
     #Name of the team with the highest average number of goals allowed per game across all seasons.
   end
 
@@ -66,12 +83,10 @@ module LeagueMethods
   def worst_fans
     #List of names of all teams with better away records than home records.
   end
-
+end
   # def team_name_getter(hash)
   #   team = teams.find do |team|
   #     team.team_id == hash(0)
   # end
   # "#{team.shortname} #{team.teamname}"
   # end
-
-end

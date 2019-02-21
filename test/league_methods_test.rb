@@ -24,4 +24,12 @@ class LeagueMethodsTest < Minitest::Test
     assert_equal "Bruins", @stat_tracker.best_offense
   end
 
+  def test_worst_offense
+    assert_equal "Rangers", @stat_tracker.worst_offense
+  end
+
+  def test_best_defense
+    assert_equal "", @stat_tracker.best_defense
+  end
+
 end
